@@ -11,6 +11,23 @@ const Login = (props) => {
   const [passwordIsValid, setPasswordIsValid] = useState();
   const [formIsValid, setFormIsValid] = useState(false);
 
+  // running Everytime the component is rendered
+  useEffect(() => {
+    console.log("RUNNING");
+  });
+  // running first time the component is rendered only
+  useEffect(() => {
+    console.log("RUNNING");
+  }, []);
+  // running first time the component is rendered with cleanup
+  useEffect(() => {
+    console.log("RUNNING");
+    // when the cmponent is unmounted or removed
+    return () => {
+      console.log("CLEANUP");
+    };
+  }, []);
+
   useEffect(() => {
     const identifier = setTimeout(() => {
       console.log("checking form validity!");
